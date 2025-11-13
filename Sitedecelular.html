@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produto - iPhone 14</title>
+  <style>
+    /* Seu CSS aqui (o que você postou no <style> anteriormente) */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: #000;
+      color: #fff; /* COR AJUSTADA para contraste com fundo preto */
+      padding-top: 70px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: #000;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+    }
+
+    nav ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0; padding: 0;
+    }
+
+    nav ul.menu li a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      text-transform: capitalize;
+      transition: color 0.3s ease;
+    }
+
+    nav ul.menu li a:hover {
+      color: #ffd700;
+    }
+
+    .content-wrapper {
+      background-color: white;
+      border-radius: 24px;
+      padding: 70px 80px;
+      max-width: 1100px;
+      margin: 80px 20px 100px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      color: #000; /* Texto preto dentro do conteúdo */
+      text-align: left;
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .product-image {
+      flex: 1 1 400px;
+      max-width: 450px;
+    }
+    .product-image img {
+      width: 100%;
+      border-radius: 20px;
+      user-select: none;
+    }
+
+    .product-info {
+      flex: 1.5 1 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
+    }
+
+    .product-info h1 {
+      font-weight: 700;
+      font-size: 3.5rem;
+      margin: 0 0 8px;
+      user-select: none;
+    }
+
+    .product-info .subtitle {
+      font-size: 1.75rem;
+      color: #555;
+      user-select: none;
+    }
+
+    .product-info .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    ul.features-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    ul.features-list li {
+      margin-bottom: 14px;
+    }
+
+    .purchase-section {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 140px;
+      user-select: none;
+    }
+
+    .quantity-selector button {
+      background: #f5f5f7;
+      border: none;
+      font-size: 1.7rem;
+      padding: 12px 18px;
+      cursor: pointer;
+      color: #000;
+      transition: background-color 0.3s ease;
+    }
+    .quantity-selector button:hover {
+      background-color: #ddd;
+    }
+
+    .quantity-selector input {
+      width: 60px;
+      text-align: center;
+      border: none;
+      font-size: 1.3rem;
+      color: #000;
+      outline: none;
+      -moz-appearance: textfield;
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+
+    .btn-primary {
+      background-color: #0071e3;
+      color: white;
+      border: none;
+      padding: 18px 36px;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .btn-primary:hover {
+      background-color: #005bb5;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #0071e3;
+      border: 2px solid #0071e3;
+      padding: 16px 34px;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    .btn-secondary:hover {
+      background-color: #0071e3;
+      color: white;
+    }
+
+    .extra-info {
+      margin-top: 35px;
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+    }
+
+    .color-options {
+      margin-top: 14px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .color-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+
+    .color-circle.white { background-color: #fafafa; }
+    .color-circle.black { background-color: #1c1c1e; }
+    .color-circle.red { background-color: #ff3b30; }
+    .color-circle.blue { background-color: #0071e3; }
+    .color-circle.purple { background-color: #af52de; }
+
+    .color-circle:hover,
+    .color-circle.selected {
+      border-color: #0071e3;
+    }
+
+    @media (max-width: 780px) {
+      .content-wrapper {
+        flex-direction: column;
+        padding: 50px 20px;
+        max-width: 95vw;
+      }
+      .product-image {
+        max-width: 300px;
+        margin-bottom: 30px;
+      }
+      .product-info h1 {
+        font-size: 2.8rem;
+      }
+      .product-info .subtitle {
+        font-size: 1.3rem;
+      }
+      .product-info .price {
+        font-size: 2.1rem;
+        margin-bottom: 20px;
+      }
+      ul.features-list {
+        font-size: 1.1rem;
+      }
+      .purchase-section {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .quantity-selector {
+        width: 100%;
+        max-width: 220px;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+      }
+      .extra-info {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">📱 Celulares Shop</div>
+    <ul class="menu" role="menubar">
+      <li role="none"><a href="index.html" role="menuitem">Início</a></li>
+      <li role="none"><a href="produtos.html" role="menuitem">Produtos</a></li>
+      <li role="none"><a href="contato.html" role="menuitem">Contato</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="content-wrapper" aria-label="Detalhes do produto iPhone 14">
+      <div class="product-image">
+        <img src="https://pngimg.com/d/iphone_14_PNG6.png" alt="iPhone 14" draggable="false" />
+      </div>
+      <div class="product-info">
+        <h1>iPhone 14</h1>
+        <div class="subtitle">Novo design. Performance incrível.</div>
+        <div class="price">R$ 7.999,00</div>
+
+        <ul class="features-list">
+          <li>Tela Super Retina XDR de 6,1 polegadas com tecnologia OLED para cores vibrantes.</li>
+          <li>Chip A15 Bionic para desempenho rápido e eficiente.</li>
+          <li>Sistema de câmera dupla com modo Noturno e gravação em 4K.</li>
+          <li>Resistência à água e poeira IP68.</li>
+          <li>iOS 16 com recursos avançados de segurança e personalização.</li>
+          <li>Disponível em várias cores elegantes para combinar com seu estilo.</li>
+        </ul>
+
+        <div class="purchase-section">
+          <div class="quantity-selector" aria-label="Selecionar quantidade">
+            <button type="button" id="decrease" aria-label="Diminuir quantidade">−</button>
+            <input type="number" id="quantity" value="1" min="1" max="10" aria-live="polite" aria-atomic="true" />
+            <button type="button" id="increase" aria-label="Aumentar quantidade">+</button>
+          </div>
+          <button class="btn-primary" id="add-cart" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+          <button class="btn-secondary" id="checkout" aria-label="Finalizar compra">Finalizar compra</button>
+        </div>
+
+        <div class="extra-info">
+          <p><strong>Frete grátis para todo o Brasil</strong>. Entrega rápida em até 7 dias úteis.</p>
+          <p><strong>Cores disponíveis:</strong></p>
+          <div class="color-options" role="list">
+            <div class="color-circle white selected" title="Branco" tabindex="0" role="listitem"></div>
+            <div class="color-circle black" title="Preto" tabindex="0" role="listitem"></div>
+            <div class="color-circle red" title="Vermelho" tabindex="0" role="listitem"></div>
+            <div class="color-circle blue" title="Azul" tabindex="0" role="listitem"></div>
+            <div class="color-circle purple" title="Roxo" tabindex="0" role="listitem"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const decreaseBtn = document.getElementById('decrease');
+    const increaseBtn = document.getElementById('increase');
+    const quantityInput = document.getElementById('quantity');
+
+    decreaseBtn.addEventListener('click', () => {
+      let current = parseInt(quantityInput.value);
+      if (current > parseInt(quantityInput.min)) {
+        quantityInput.value = current - 1;
+      }
+    });
+
+    increaseBtn.addEventListener('click', () => {
+      let current = parseInt(quantityInput.value);
+      if (current < parseInt(quantityInput.max)) {
+        quantityInput.value = current + 1;
+      }
+    });
+
+    const colors = document.querySelectorAll('.color-circle');
+    colors.forEach(color => {
+      color.addEventListener('click', () => {
+        colors.forEach(c => c.classList.remove('selected'));
+        color.classList.add('selected');
+      });
+      color.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          color.click();
+        }
+      });
+    });
+
+    document.getElementById('add-cart').addEventListener('click', () => {
+      const selectedColor = document.querySelector('.color-circle.selected').title;
+      alert(`Adicionado ${quantityInput.value} iPhone(s) na cor ${selectedColor} ao carrinho.`);
+    });
+    document.getElementById('checkout').addEventListener('click', () => {
+      alert('Redirecionando para finalizar compra...');
+    });
+  </script>
+
+</body>
+</html>
